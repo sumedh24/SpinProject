@@ -23,7 +23,14 @@ app.get("/",(req, res)=>{
 app.get("/index1",(req, res)=>{
          res.sendFile(__dirname+"/index1.html");
     })
-
+    app.get('/style1.css', function(req, res) {
+        res.setHeader('Content-Type', 'text/css');
+        res.sendFile(__dirname + '/public/style1.css');
+      });
+      app.get('/script1.js', function(req, res) {
+        res.setHeader('Content-Type', 'application/javascript');
+        res.sendFile(__dirname + '/public/script1.js');
+      });
 //Middleware for data validation
 const validateFormData=(req, res, next)=>{
      const phoneNumber= req.body.phoneNumber;
